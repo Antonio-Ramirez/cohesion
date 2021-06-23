@@ -1,0 +1,17 @@
+*.log
+*.war
+*.nar
+*.ear
+*.tar.gz
+*.rar
+
+target
+build
+.idea
+.bsp
+
+.DS_Store
+
+*.env
+.env
+.envrc
