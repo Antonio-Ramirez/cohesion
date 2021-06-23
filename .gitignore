@@ -10,6 +10,7 @@ build
 .idea
 .bsp
 
+project/project/
 .DS_Store
 
 *.env
