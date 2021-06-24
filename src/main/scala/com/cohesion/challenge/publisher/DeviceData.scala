@@ -16,6 +16,14 @@ class DeviceSensor(producerSettings: ProducerSettings[String, String], topic: St
                   (implicit ec: ExecutionContext, mt: Materializer)
   extends Actor with ActorLogging {
 
+  /**
+   * Stream behavior:
+   * - Generate random data for configured number of devices
+   * - Publish random data into Kafka topic
+   *
+   * Side effects:
+   * - Writing  device data into Kafka topic
+   */
   override def receive: Receive = {
     case DeviceSensor.Start =>
       log.info("It's time to scan all device ones")

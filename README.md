@@ -23,12 +23,36 @@ There are two parts to the application
 
 ## Overview
 
-
 + Modelling Device Data on Scala, Generate random device data on Akka and publish to Kafka,
 + Scheduled to obtain device data every 3s and publish to Kafka,
 + Use Akka streaming to consume all device data messages from Kafka,
 + To facilitate the execution of the solution, we use docker-compose container that includes: Zookeeper, Kafka and PostgreSQL DB, defined on *docker-compose.yml*
 + Application settings configured on *resources/application.conf*, for example: kafka configuration, batch duration, interval time to generate data, num of devices to sense.
+
+### How to Compile
+
+Run the following commands to clean and compile the project:
+```bash
+sbt clean compile
+```
+
+### Run Unit Tests
+
+Run the following on the root of the project to run all the tests
+```bash
+sbt test
+```
+
+### Run Integration Tests
+Integration tests will test the repository layer by creating in-memory instance of database and
+running the tests against it. You have to make sure the port is free otherwise you need to change
+it in the test class.
+Note: To avoid any conflicts, please stop any local instance of database when running integration tests.
+
+Run the following command on the root of the project:
+```bash
+sbt it:test
+```
 
 ## Execute the solution
 

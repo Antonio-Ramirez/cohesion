@@ -1,7 +1,5 @@
 package com.cohesion.challenge.repository
 
-import java.time.Clock
-
 import com.cohesion.challenge.model.DeviceData
 import com.cohesion.challenge.repository.model.RawData
 import com.cohesion.challenge.repository.table.RawDataTable
@@ -14,7 +12,7 @@ import slick.sql.FixedSqlAction
 import scala.concurrent.{ExecutionContext, Future}
 
 class DeviceRepository(database: Database)
-                      (implicit clock: Clock, ec: ExecutionContext)
+                      (implicit ec: ExecutionContext)
   extends LazyLogging {
 
   this: RawDataTable =>

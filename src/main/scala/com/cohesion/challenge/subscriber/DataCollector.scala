@@ -15,6 +15,17 @@ class DataCollector(consumerSettings: ConsumerSettings[String, String], topic: S
                    (implicit ec: ExecutionContext, mt: Materializer)
   extends Actor with ActorLogging {
 
+  /**
+   * Stream behavior:
+   * - Receive message from Kafka topic
+   * - Convert message into a DeviceData
+   * - Create an entry in the raw_data postgres table
+   * - Logging the DeviceData on the Console
+   *
+   * Side effects:
+   * - Writing to raw_data postgres table
+   * - Logging received data on the Console
+   */
   override def receive: Receive = {
     case DataCollector.Start =>
       log.info("It's time to collect all device ones")
